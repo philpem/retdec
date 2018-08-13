@@ -15,8 +15,8 @@ import urllib.request
 version_filename = 'version.txt'
 arch_suffix = 'tar.xz'
 
-sha256hash_ref = 'b54ba07e2f28143c9afe34a9d5b4114fb61f3c1175b9807caced471fec82001e'
-version = '2018-02-08'
+sha256hash_ref = 'aaaefaecbf1670560c61bad33ec18c25562b9c1328e7f54da8c207b405bed813'
+version = '2018-08-13'
 
 arch_name = 'retdec-support' + '_' + version + '.' + arch_suffix
 
