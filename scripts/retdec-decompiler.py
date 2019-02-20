@@ -38,8 +38,8 @@ def parse_args(args):
     parser.add_argument('-a', '--arch',
                         dest='arch',
                         metavar='ARCH',
-                        choices=['mips', 'pic32', 'arm', 'thumb', 'powerpc', 'x86'],
-                        help='Specify target architecture [mips|pic32|arm|thumb|powerpc|x86].'
+                        choices=['m68k', 'mips', 'pic32', 'arm', 'thumb', 'powerpc', 'x86'],
+                        help='Specify target architecture [m68k|mips|pic32|arm|thumb|powerpc|x86].'
                              ' Required if it cannot be autodetected from the input (e.g. raw mode, Intel HEX).')
 
     parser.add_argument('-e', '--endian',
@@ -942,7 +942,7 @@ class Decompiler:
                 ords_dir = config.ARM_ORDS_DIR
             elif self.arch in ['x86']:
                 ords_dir = config.X86_ORDS_DIR
-            elif self.arch in ['powerpc', 'mips', 'pic32']:
+            elif self.arch in ['powerpc', 'mips', 'pic32', 'm68k']:
                 pass
             else:
                 if self.args.generate_log:

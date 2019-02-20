@@ -18,6 +18,7 @@ const std::string ARCH_ARM     = "arm";
 const std::string ARCH_THUMB   = "thumb";
 const std::string ARCH_x86     = "x86";
 const std::string ARCH_PPC     = "powerpc";
+const std::string ARCH_M68K    = "m68k";
 
 const std::string JSON_name    = "name";
 const std::string JSON_endian  = "endian";
@@ -44,6 +45,7 @@ bool Architecture::isKnown() const      { return !isUnknown(); }
 bool Architecture::isUnknown() const    { return isArch(eArch::UNKNOWN); }
 bool Architecture::isMips() const       { return isArch(eArch::MIPS); }
 bool Architecture::isMipsOrPic32() const{ return isMips() || isPic32(); }
+bool Architecture::isM68K() const       { return isArch(eArch::M68K); }
 
 /**
  * Checks if this architecture instance matches with the provided architecture name.
@@ -73,6 +75,7 @@ void Architecture::setIsArm()     { setName(ARCH_ARM); }
 void Architecture::setIsThumb()   { setName(ARCH_THUMB); }
 void Architecture::setIsX86()     { setName(ARCH_x86); }
 void Architecture::setIsPpc()     { setName(ARCH_PPC); }
+void Architecture::setIsM68K()     { setName(ARCH_M68K); }
 
 void Architecture::setIsEndianLittle()           { _endian = E_LITTLE; }
 void Architecture::setIsEndianBig()              { _endian = E_BIG; }
@@ -130,6 +133,11 @@ void Architecture::setArch()
 	{
 		_arch = eArch::PPC;
 	}
+	else if (retdec::utils::containsCaseInsensitive(_name, ARCH_M68K))
+	{
+		_arch = eArch::M68K;
+	}
+
 }
 
 /**

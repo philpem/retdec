@@ -67,6 +67,12 @@ void Decoder::initTranslator()
 		arch = CS_ARCH_ARM;
 		basicMode = CS_MODE_ARM; // We start with ARM mode even for THUMB.
 	}
+	else if (a.isM68K()
+			&& a.getBitSize() == 32)
+	{
+		arch = CS_ARCH_M68K;
+		basicMode = CS_MODE_M68K_000;
+	}
 	else
 	{
 		throw std::runtime_error("Unsupported architecture.");
