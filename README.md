@@ -259,7 +259,7 @@ Building in Docker does not require installation of the required libraries local
 
 To build the RetDec Docker image, run
 ```
-docker build -t retdec .
+docker build -t retdec - < Dockerfile
 ```
 
 This builds the image from the master branch of this repository.
@@ -279,7 +279,7 @@ Now, you can run the decompiler inside a container:
 ```
 docker run --rm -v /path/to/local/directory:/destination retdec retdec-decompiler.py /destination/binary
 ```
-Output files will be generated to the same directory (e.g. `/path/to/local/directory`).
+Note: Do not modify the `/destination` part is. You only need to change `/path/to/local/directory`. Output files will then be generated to `/path/to/local/directory`.
 
 ## Automated TeamCity Builds
 
@@ -353,7 +353,8 @@ See the [project documentation](https://retdec-tc.avast.com/repository/download/
 ## Related Repositories
 
 * [retdec-idaplugin](https://github.com/avast-tl/retdec-idaplugin) -- Embeds RetDec into IDA (Interactive Disassembler) and makes its use much easier.
-* [retdec-regression-tests-framework](https://github.com/avast-tl/retdec-regression-tests-framework) -- Provides means to run and create regression tests for RetDec and related tools. This is a must if you plan to contribute to the RetDec project.
+* [retdec-regression-tests-framework](https://github.com/avast-tl/retdec-regression-tests-framework) -- A framework for writing and running regression tests for RetDec and related tools. This is a must if you plan to contribute to the RetDec project.
+* [retdec-regression-tests](https://github.com/avast-tl/retdec-regression-tests) -- A suite of regression tests for RetDec and related tools.
 * [vim-syntax-retdecdsm](https://github.com/s3rvac/vim-syntax-retdecdsm) -- Vim syntax-highlighting file for the output from the RetDec's disassembler (`.dsm` files).
 
 ## License
