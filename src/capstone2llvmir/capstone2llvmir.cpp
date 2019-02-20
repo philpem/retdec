@@ -65,6 +65,10 @@ std::unique_ptr<Capstone2LlvmIrTranslator> Capstone2LlvmIrTranslator::createArch
 		{
 			return createXcore(m, extra);
 		}
+		case CS_ARCH_M68K:
+		{
+			return createM68K(m, extra);
+		}
 		default:
 		{
 			// Nothing.
@@ -184,6 +188,14 @@ std::unique_ptr<Capstone2LlvmIrTranslator> Capstone2LlvmIrTranslator::createSysz
 }
 
 std::unique_ptr<Capstone2LlvmIrTranslator> Capstone2LlvmIrTranslator::createXcore(
+		llvm::Module* m,
+		cs_mode extra)
+{
+	throw GenericError("Not implemented.");
+	return nullptr;
+}
+
+std::unique_ptr<Capstone2LlvmIrTranslator> Capstone2LlvmIrTranslator::createM68K(
 		llvm::Module* m,
 		cs_mode extra)
 {

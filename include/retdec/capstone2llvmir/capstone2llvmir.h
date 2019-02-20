@@ -249,6 +249,18 @@ class Capstone2LlvmIrTranslator
 				llvm::Module* m,
 				cs_mode extra = CS_MODE_LITTLE_ENDIAN);
 
+		/**
+		 * Create Motorola 680x0 (M68K) translator with extra mode @c extra.
+		 * This is meant to be used when M68K needs to be used with extra mode
+		 * like @c CS_MODE_LITTLE_ENDIAN.
+		 * @return Unique pointer to created translator, or @c nullptr if
+		 * translator (with the specified mode) could not be created.
+		 */
+		static std::unique_ptr<Capstone2LlvmIrTranslator> createM68K(
+				llvm::Module* m,
+				cs_mode extra = CS_MODE_BIG_ENDIAN);
+
+
 		virtual ~Capstone2LlvmIrTranslator();
 //
 //==============================================================================
